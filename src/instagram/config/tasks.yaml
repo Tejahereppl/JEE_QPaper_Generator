@@ -1,0 +1,30 @@
+research_task:
+  description: >
+    Research and provide a concise set of 100 questions on the specified subject and topic, targeting essential JEE concepts.
+    Include questions that reflect a range of difficulty levels (easy, medium, hard).
+  expected_output: >
+    A list of exactly 10 questions on the subject and topic, with:
+    - Each question labeled with a difficulty level (easy, medium, hard).
+    - Each question accompanied by a brief, 1-paragraph answer .
+  agent: question_researcher
+
+curation_task:
+  description: >
+    Review the provided questions to ensure they meet the difficulty standards for JEE.
+    Select 10 final questions with verified accuracy and adjust difficulty tags if needed.
+  expected_output: >
+    A curated list of exactly 25 validated questions, each with:
+    - A difficulty level confirmed as appropriate for JEE.
+    - A brief, 1-sentence answer.
+  agent: question_curator
+
+formatting_task:
+  description: >
+    Format the 25 curated questions into a concise, structured JEE question paper totaling 100 marks.
+    Organize the questions into sections: 20 MCQs, 5 integer-type questions
+  expected_output: >
+    A formatted question paper with:
+    - Section 1: 20 MCQs (4 marks each).
+    - Section 2: 5 integer-type questions (4 marks each).
+    
+  agent: question_paper_formatter

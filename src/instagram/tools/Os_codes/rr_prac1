@@ -1,0 +1,99 @@
+#include<stdio.h>
+
+
+typedef struct{
+    int process_id;
+    int arrival;
+    int turnaround;
+    int burst;
+    int wait;
+    int rem_burst;
+}process
+
+
+void RR(process p[],int n,int tq){
+
+    int completed = 0;
+    int current = 0;
+    int queue[100];
+
+    for(int i = 0;i<n;i++){
+        p[i].rem_burst = p[i].burst;
+    }
+
+    while(completed<n){
+        
+        for(int i=0;i<n;i++){
+
+            if(p[i].arrival<=current && p[i].rem_burst>0){
+                int in = 0;
+                for(int j=front;j<rear;j++){
+                    if(queue[j]==i){
+                        in = 1;
+                    }
+                }
+                if(!in){
+                    queue[rear++] = i;
+                }
+            }
+
+        }
+        if(front<rear){
+           process temp = &p[queue[front]];
+
+           if(temp->rem_burst<=tq){
+                printf("P%d ->(%d-%d)",temp->process_id,current,temp->rem_burst+current);
+                current+=temp->rem_burst;
+                temp->rem_burst = 0;
+                temp->turnaround = current-temp->arrival;
+                temp->wait = temp->turnaround-temp->burst;
+                completed++;
+                front++;
+           }
+           else{
+                printf("P%d ->(%d-%d)",temp->process_id,current,current+tq);
+                current+=tq;
+                for(int j=front;j<rear;j++){
+                    if(queue[j]==i){
+                        in = 1;
+                    }
+                }
+                if(!in){
+                    queue[rear++] = i;
+                }
+
+                temp->rem_burst-=tq;
+                queue[rear++] = queue[front];
+                front++;
+           }
+        }
+        else{
+            curent++;
+        }
+    }
+    printf("\nProcess\tArrival\tBurst\tWaiting\tTurnaround\n");
+    for (int i = 0; i < n; i++) {
+        printf("P%d\t%d\t%d\t%d\t%d\n", processes[i].process_id, processes[i].arrival_time,
+               processes[i].burst_time, processes[i].waiting_time, processes[i].turnaround_time);
+    }
+}
+
+int main(){
+    int n,tq;
+    printf("Enter the number of process:");
+    scanf("%d",&n);
+    printf("Enter the Time quantum:");
+    scanf("%d",&tq);
+    process p[100];
+
+    for(int i=0;i<n;i++){
+        printf("Enter the process id:\n");
+        scanf("%d",&p[i].process_id);
+        printf("Enter the Arrival Time:\n");
+        scanf("%d",&p[i].arrival);
+        printf("Enter the Burst Time:\n");
+        scanf("%d",&p[i].burst);
+    }
+
+    RR(p,n,tq)
+}
