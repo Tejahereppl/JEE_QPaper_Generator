@@ -28,7 +28,7 @@ def load_tasks():
         tasks = yaml.safe_load(file)
     return tasks
 # Set up the Serper and Google credentials
-os.environ["SERPER_API_KEY"] = "b600b1e98979eefaf2ae82952102d8f2cbb715d0"
+os.environ["SERPER_API_KEY"] = ""
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\tejas\Downloads\questionpapergenerator-440603-45edf3359ec2.json"
 
 # Custom Wrapper for SerperDevTool to implement required _run and _arun methods
