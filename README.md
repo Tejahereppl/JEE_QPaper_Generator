@@ -1,61 +1,25 @@
-# Instagram Crew
+JEE Model Question Paper Generator
+Overview
+This project is designed to help students preparing for the JEE exam by generating customized model question papers. Simply input the subject and topic, and the system will create a balanced 100-mark question paper tailored to your needs.
 
-Welcome to the Instagram Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+Key Features
+Customizable: Generate question papers based on your chosen subject and topic.
+Efficient Design: Powered by agents and tasks to ensure seamless functionality.
+Structured Configuration: All agent roles and tasks are explicitly defined in YAML files for transparency and easy customization.
+How It Works
+Specify the subject and topic.
+The system processes your input using defined agents and tasks.
+A well-structured 100-mark question paper is generated, ready for use.
+Behind the Scenes
+The project uses an agent-task architecture:
 
-## Installation
+Agents: Handle specific roles like question selection, validation, and formatting.
+Tasks: Define the steps agents follow to accomplish their objectives.
+These roles and workflows are clearly outlined in YAML files, making the system modular and easy to update.
+Why This Project?
+With JEE being a competitive and challenging exam, this tool simplifies practice by providing focused and customizable question papers, saving time for students and educators.
 
-Ensure you have Python >=3.10 <=3.13 installed on your system. This project uses [Poetry](https://python-poetry.org/) for dependency management and package handling, offering a seamless setup and execution experience.
+Get Started
+Check out the YAML files to explore or modify the agent-task structure and see how it all comes together!
 
-First, if you haven't already, install Poetry:
 
-```bash
-pip install poetry
-```
-
-Next, navigate to your project directory and install the dependencies:
-
-1. First lock the dependencies and then install them:
-```bash
-poetry lock
-```
-```bash
-poetry install
-```
-### Customizing
-
-**Add your `OPENAI_API_KEY` into the `.env` file**
-
-- Modify `src/instagram/config/agents.yaml` to define your agents
-- Modify `src/instagram/config/tasks.yaml` to define your tasks
-- Modify `src/instagram/crew.py` to add your own logic, tools and specific args
-- Modify `src/instagram/main.py` to add custom inputs for your agents and tasks
-
-## Running the Project
-
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
-
-```bash
-$ crewai run
-```
-or
-```bash
-poetry run instagram
-```
-
-This command initializes the instagram Crew, assembling the agents and assigning them tasks as defined in your configuration.
-
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
-
-## Understanding Your Crew
-
-The instagram Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
-
-## Support
-
-For support, questions, or feedback regarding the Instagram Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
-
-Let's create wonders together with the power and simplicity of crewAI.
